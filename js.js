@@ -47,3 +47,8 @@ const btnLoad = document.getElementById("lIF");
 btnLoad.addEventListener("click", () => {
   getData("hamster");
 });
+//bottone load2 e funzione chiamata
+const btnLoad2 = document.getElementById("lIS");
+btnLoad2.addEventListener("click", () => {
+  getData("tigers");
+});
