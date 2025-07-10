@@ -112,7 +112,7 @@ const toDetails = (array) => {
     el.addEventListener("click", () => {
       const imageId = array[b].id;
       //cambio pagina conserva id
-      location.assign(`details.html?id=${imageId}`);
+      location.assign(`details.html?eventId=${imageId}`);
     });
   });
 };
