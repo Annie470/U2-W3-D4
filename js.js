@@ -9,10 +9,11 @@ const changeImg = function (array) {
   cardArray.forEach((el) => {
     el.removeAttribute("src");
     el.setAttribute("src", array[i].src.medium);
-    toDetails(array);
+
     i++;
   });
   //riparte il ciclo
+  toDetails(array);
 };
 
 //funzione sostituzione 9mins con id
@@ -73,6 +74,17 @@ cards.forEach((card) => {
   editBtn.innerText = "Hide";
   editBtn.addEventListener("click", () => {
     card.classList.add("d-none");
+  });
+  //aggiunta modale a view
+  const modalee = () => {
+    const view = card.querySelector("button");
+    view.addEventListener("click", () => {
+      const myModal = new bootstrap.Modal(document.getElementById("myModal"));
+      myModal.show();
+    });
+  };
+  document.addEventListener("DOMContentLoaded", () => {
+    modalee();
   });
 });
 
