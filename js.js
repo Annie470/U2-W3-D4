@@ -13,6 +13,17 @@ const changeImg = function (array) {
   });
   //riparte il ciclo
 };
+
+//funzione sostituzione 9mins con id
+const nineMins = function (array) {
+  const arrayMins = document.querySelectorAll("small");
+  let i = 0;
+  arrayMins.forEach((el) => {
+    el.innerText = array[i].id;
+    i++;
+  });
+};
+
 //funzione getData(query es= hamster or tiger)
 const endpoint = "https://api.pexels.com/v1/search?query=";
 
@@ -35,6 +46,7 @@ const getData = function (query) {
       arrayP.push(...data.photos);
       console.log(arrayP);
       changeImg(arrayP);
+      nineMins(arrayP);
     })
 
     .catch((error) => {
@@ -51,4 +63,14 @@ btnLoad.addEventListener("click", () => {
 const btnLoad2 = document.getElementById("lIS");
 btnLoad2.addEventListener("click", () => {
   getData("tigers");
+});
+
+//sostituzione edit con hide
+const cards = document.querySelectorAll(".col-md-4");
+cards.forEach((card) => {
+  const editBtn = card.querySelector("button + button");
+  editBtn.innerText = "Hide";
+  editBtn.addEventListener("click", () => {
+    card.classList.add("d-none");
+  });
 });
