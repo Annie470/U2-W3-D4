@@ -9,6 +9,7 @@ const changeImg = function (array) {
   cardArray.forEach((el) => {
     el.removeAttribute("src");
     el.setAttribute("src", array[i].src.medium);
+    toDetails(array);
     i++;
   });
   //riparte il ciclo
@@ -101,4 +102,17 @@ const getQuery = function () {
   //prendo la value dell'input
   const inputSearch = document.getElementById("search");
   return inputSearch.value;
+};
+
+//funzione click img
+const toDetails = (array) => {
+  //click sull img
+  const arrayImg = document.querySelectorAll("#card-row img");
+  arrayImg.forEach((el, b) => {
+    el.addEventListener("click", () => {
+      const imageId = array[b].id;
+      //cambio pagina conserva id
+      location.assign(`details.html?id=${imageId}`);
+    });
+  });
 };
