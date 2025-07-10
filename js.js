@@ -74,3 +74,31 @@ cards.forEach((card) => {
     card.classList.add("d-none");
   });
 });
+
+//aggiunta campo di ricerca in main
+const main = document.querySelector("main");
+const div = document.createElement("div");
+div.innerHTML += `<div class="row justify-content-center mt-4">
+  <div class="col col-6">
+    <form id="formSearch">
+      <input class="form-control" list="datalistOptions" id="search" placeholder="Search img...">
+      <datalist id="datalistOptions">
+        <option value="hamsters">
+        <option value="tigers">
+      </datalist>
+    </form>
+  </div>
+</div>`;
+main.insertBefore(div, main.firstElementChild);
+
+//creazione funzione query
+const form = document.getElementById("formSearch");
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
+  getData(getQuery());
+});
+const getQuery = function () {
+  //prendo la value dell'input
+  const inputSearch = document.getElementById("search");
+  return inputSearch.value;
+};
